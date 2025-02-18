@@ -12,10 +12,9 @@ pipeline {
                 echo 'testing'
             }
         }
-        stage('Deploy'){
+        stage('Deploying site'){
             steps{
-                bat 'node hello'
-                echo 'deploying...'
+                publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: '', reportFiles: 'new.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
             }
     }   }
 }
